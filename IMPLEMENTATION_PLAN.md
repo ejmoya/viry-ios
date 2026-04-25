@@ -31,7 +31,7 @@ Status legend: `[ ]` not started · `[~]` in progress · `[x]` done
 - [x] 0.4 Add `.gitignore` for Xcode/Swift (`xcuserdata/`, `*.xcworkspace/xcuserdata/`, `DerivedData/`, `.DS_Store`, `*.xcscmblueprint`, `*.xccheckout`, `Pods/`, `.swiftpm/`).
 - [x] 0.5 Replace placeholder `README.md` with a short English overview pointing to `CLAUDE.md` and this plan.
 - [x] 0.6 Create an Xcode project: name `Viry`, bundle id `emoya.Viry`, interface **SwiftUI**, lifecycle **SwiftUI App**, language **Swift**, testing system **Swift Testing + XCTest UI**. Deployment target was set by Xcode 26 to **iOS 26.4** (default); the plan originally targeted iOS 16.0 — see Open Questions below for the decision still pending.
-- [ ] 0.7 Commit the freshly generated Xcode project.
+- [x] 0.7 Commit the freshly generated Xcode project. *(commit `eb2a1bf`)*
 - [x] 0.8 Configure Info.plist via `INFOPLIST_KEY_*` build settings (modern auto-generated Info.plist): added `INFOPLIST_KEY_NSCameraUsageDescription` and `INFOPLIST_KEY_UIRequiredDeviceCapabilities = arkit` to both Debug and Release configurations of the app target.
 - [ ] 0.9 Add a SwiftLint config (optional but recommended) — only if no extra dependency burden is introduced (use a Build Phase script or skip).
 
@@ -43,14 +43,11 @@ Status legend: `[ ]` not started · `[~]` in progress · `[x]` done
 
 **Goal:** the empty, well-organized folder structure described in `CLAUDE.md` exists and compiles.
 
-- [ ] 1.1 Create the top-level groups in Xcode: `App`, `Features/ARScene`, `Features/ModelLibrary`, `Features/Controls`, `Features/Audio`, `Core/Models`, `Core/Persistence`, `Core/Extensions`, `Core/Utilities`, `Resources`.
-- [ ] 1.2 Add `App/ViryApp.swift` (already generated) and `App/AppDependencies.swift` — a simple container that creates singletons for services (`ARCoordinator`, `ModelLoader`, `AudioPlayer`).
-- [ ] 1.3 Define empty protocols for each service so views/view models can depend on abstractions:
-  - `ModelLoading`
-  - `AudioPlaying`
-  - `ARCoordinating`
-- [ ] 1.4 Define empty Codable model types (`ARModelAsset`, `ControlButton`, `AnimationBinding`, `AudioBinding`) with TODOs for fields filled in later phases.
-- [ ] 1.5 Add a `RootView` that just shows a placeholder "Viry" screen, wired into `ViryApp`.
+- [x] 1.1 Create the top-level groups in Xcode: `App`, `Features/ARScene`, `Features/ModelLibrary`, `Features/Controls`, `Features/Audio`, `Core/Models`, `Core/Persistence`, `Core/Extensions`, `Core/Utilities`, `Resources`. *(Xcode 16 uses `PBXFileSystemSynchronizedRootGroup`, so on-disk folders are auto-discovered — no pbxproj edits needed.)*
+- [x] 1.2 Add `App/ViryApp.swift` (moved from project root) and `App/AppDependencies.swift` — `@Observable @MainActor` container injected via `.environment(_:)`.
+- [x] 1.3 Define empty protocols for each service so views/view models can depend on abstractions: `ModelLoading`, `AudioPlaying`, `ARCoordinating`.
+- [x] 1.4 Define empty Codable model types (`ARModelAsset`, `ControlButton`, `AnimationBinding`, `AudioBinding`) with TODOs for fields filled in later phases.
+- [x] 1.5 Add a `RootView` that just shows a placeholder "Viry" screen, wired into `ViryApp`.
 
 **Acceptance:** project compiles, all files are in their target folders, no dead references.
 
