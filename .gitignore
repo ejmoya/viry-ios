@@ -1,0 +1,81 @@
+# =========================================================================
+# Viry — iOS .gitignore
+# Based on github/gitignore/Swift.gitignore + Xcode specifics
+# =========================================================================
+
+# --- macOS ---------------------------------------------------------------
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+
+# --- Xcode ---------------------------------------------------------------
+# Build products
+build/
+DerivedData/
+*.xcarchive
+
+# User-specific files (never share these)
+xcuserdata/
+*.xcuserstate
+*.xcuserdatad/
+
+# Project navigator state & schemes (personal, not shared)
+*.xcscmblueprint
+*.xccheckout
+*.moved-aside
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+*.pbxuser
+
+# Keep shared schemes; ignore user-level ones only
+# (user schemes already covered by xcuserdata/ above)
+
+# --- Swift Package Manager ----------------------------------------------
+.build/
+.swiftpm/
+Packages/
+Package.pins
+Package.resolved
+# If the project uses SwiftPM for the app itself, commit Package.resolved instead:
+# !Package.resolved
+
+# --- CocoaPods (not expected, but just in case) -------------------------
+Pods/
+*.xcworkspace/xcuserdata/
+
+# --- Carthage (not expected) --------------------------------------------
+Carthage/Build/
+Carthage/Checkouts/
+
+# --- Fastlane (future) --------------------------------------------------
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+
+# --- Code coverage / profiling ------------------------------------------
+*.profraw
+*.profdata
+*.gcov
+*.gcda
+*.gcno
+
+# --- Archives & signing -------------------------------------------------
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# --- Editors ------------------------------------------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# --- Environment / secrets ----------------------------------------------
+.env
+.env.*
+*.xcconfig.local
